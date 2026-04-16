@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SILENT-LDT SESSION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      --accent: #6366f1;
+      --accent-hover: #5856eb;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius-sm: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --transition-base: all 0.2s ease-in-out;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --accent: #8b5cf6;
+      --accent-hover: #a78bfa;
+      --border-color: #334155;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      margin-bottom: 3rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-section .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Method Cards */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .method-card {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .method-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      color: var(--accent);
+    }
+
+    .method-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .method-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .method-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .method-card .arrow {
+      font-size: 1.2rem;
+      margin-top: auto;
+      opacity: 0.5;
+      transition: var(--transition-base);
+    }
+
+    .method-card:hover .arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* GitHub button */
+    .github-row {
+      margin-top: 1.5rem;
+    }
+
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2rem;
+      background: #18181b;
+      color: white;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid #333;
+      transition: var(--transition-base);
+    }
+
+    .btn-github:hover {
+      background: #262626;
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Deploy Section */
+    .deploy-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .deploy-card {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .deploy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .deploy-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .deploy-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .deploy-card p {
+      color: var(--text-secondary);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 1000;
+      transition: var(--transition-base);
+    }
+
+    .theme-toggle:hover { box-shadow: var(--shadow-lg); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .hero-section { padding: 2.5rem 1.5rem; }
+      .hero-section h1 { font-size: 2.2rem; }
+      .method-grid { grid-template-columns: 1fr; }
+      .deploy-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <div class="container">
+
+    <!-- Hero / Session Generator -->
+    <section class="hero-section">
+      <div class="hero-badge">⚡ WhatsApp Bot Session</div>
+      <h1>CRAZY-X</h1>
+      <p class="subtitle">Choose how you'd like to connect your WhatsApp session below.</p>
+
+      <div class="method-grid">
+        <a href="/pair" class="method-card">
+          <div class="method-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3>Pair Code</h3>
+          <p>Enter your number and get a pairing code to link your WhatsApp.</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="/qr" class="method-card">
+          <div class="method-icon">
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <h3>QR Scan</h3>
+          <p>Scan a QR code directly from your WhatsApp linked devices.</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="github-row">
+        <a href="https://github.com/JoshKingmd/CRAZY-X" class="btn-github" target="_blank">
+          <i class="fab fa-github"></i> Fork on GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Info Cards -->
+    <div class="deploy-section">
+      <div class="deploy-card">
+        <div class="deploy-icon"><i class="fas fa-server"></i></div>
+        <h3>Node.js Hosting</h3>
+        <p>Deploy your CRAZY-X bot on professional hosting with unlimited resources and 99.9% uptime.</p>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Fast Deployment</h3>
+        <p>Launch sessions instantly with one-click deployment and automatic HTTPS.</p>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Secure Sessions</h3>
+        <p>Enterprise-grade security for your WhatsApp automation with privacy-first design.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> CRAZY-X Session Generator. All rights reserved. | Secure &amp; Fast</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme-mode');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', initialTheme);
+      localStorage.setItem('theme-mode', initialTheme);
+      updateThemeIcon(initialTheme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme-mode', newTheme);
+      localStorage.setItem('theme-mode-manual', 'true');
+      updateThemeIcon(newTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme-mode-manual')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme-mode', newTheme);
+        updateThemeIcon(newTheme);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+  </script>
+</body>
+</html>
